@@ -1,1 +1,1 @@
-
+A decision tree is a flowchart-like structure used for both decision support and machine learning, which models decisions and their possible consequences. It consists of a root node (the starting point), branches (representing choices or outcomes), and leaf nodes (representing final outcomes). In machine learning, it's a supervised learning algorithm that creates a model to predict a target variable by learning simple decision rules from data, and it can be used for both classification and regression tasks

@@ -61,55 +61,114 @@ These techniques work well when the assumption holds that data points follow a n
 
 Missing values can also be handled using **interpolation**, a method that predicts missing data based on existing values. The choice of interpolation technique depends on the nature of the dataset. One of the most commonly used approaches is **linear interpolation**, which assumes a linear relationship between adjacent observed values. In this method, a straight line is fitted between two known points, and the missing value is estimated accordingly.
 
----
 
 ### **Dealing with Outliers**
 
-Dealing with the outlier values is one of the most important steps of data transformation, an outlier is a data point which is significantly different in value from the rest of the dataset. These outliers affects the generalization behaviour of the machine learning model as they impact the performance and accuracy of the model, here are some of the techniques used to handle the outliers:
+An **outlier** is a data point that is significantly different from the rest of the dataset. Outliers negatively affect the generalization of machine learning models as they can reduce performance and accuracy. Below are common techniques for handling outliers:
 
-**Identification of Outlier:**
-The first step to consider in dealing with outliers is to identify the outliers data points. This could be done through more than one method, the first way we can identify the outliers is through visual inspection we can use either box-plot or scatter plot to identify the data points which are not among most of the data points in the dataset, we can also obtain the outlier data points by statistical methods including z-score and IQR, for example, we can calculate the z-score for all the data points and consider a threshold, if the z-score of the data point crosses the certain mentioned threshold then it is considered to be an outlier. There are also certain machine learning anomaly detection models including Isolation Forest and One-Class SVM which could be used to identify the outliers. Choosing the correct outlier detection method depends on the characteristics of data and the goals of analysis.
+---
 
-**Removing Outliers:**
-The removal of outliers becomes an important measure in most of the cases as it produces noise or acts as an error and reduces the model performance. But before removing we must consider the characteristics of data which we are trying to analyze, for example in cases such as fraud detection the outlier can give important insights regarding faulty transactions.
+### **Identifying Outliers**
 
-**Transformations:**
-Through data transformation we can reduce the impact of outliers with the help of various data transformation methods like log transformation in which if the outlier value is really large this method can reduce the impact of the value, or we can use square root transformation as well which is suitable for positively skewed data like log transformation, but this method is quite milder than log transformation. We can also use Box-Cox transformation, where we are not sure which transformation is useful. There are many other methods of data transformation which we can choose but choosing the best according to the characteristics of data that we have is a good way to work on a project.
+The first step in dealing with outliers is **identification**. This can be done using multiple methods:
 
-**Truncation:**
-Truncation is the method of setting a threshold and then adjusting all the points that are outside the range of the threshold value. Truncation reduces the impact of outliers on the analysis and modelling process by restricting the impact of extreme values.
+* **Visual Inspection**:
+  Use **box plots** or **scatter plots** to visually spot data points that lie far away from the majority of values.
 
-**Binning and Discretization of Data:**
-Often times certain machine learning algorithms like decision tree perform better on categorical data, but the data we might receive from different sources can be continuous in value. Therefore converting the continuous range of values into bins of data could help improve model performance. Binning is the process of converting continuous value of a feature into discrete values, KBinsDiscretizer is one of the most commonly used discretization technique that could be applied on continuous value data to encode them into discrete values.
+* **Statistical Methods**:
+  Techniques like the **Z-score** and **IQR (Interquartile Range)** can be used. For example, if the Z-score of a data point exceeds a chosen threshold, it can be flagged as an outlier.
 
-The technique of dealing with outlier must be chosen according to the characteristics of the data present in-front of us and the machine learning algorithm that we are applying on the data.
+* **Machine Learning Methods**:
+  Models such as **Isolation Forest** and **One-Class SVM** can detect anomalies automatically.
+
+> Choosing the right method depends on the nature of the data and the goal of the analysis.
+
+---
+
+### **Removing Outliers**
+
+Outliers often act as noise or errors and removing them can improve model performance. However, removal should be done carefully. In cases like **fraud detection**, outliers may hold valuable insights and should be retained.
+
+---
+
+### **Transformations**
+
+Outlier impact can be reduced using data transformation techniques such as:
+
+* **Log Transformation** — useful for very large values.
+* **Square Root Transformation** — milder than log transformation and suitable for positively skewed data.
+* **Box-Cox Transformation** — helpful when the best transformation is not known in advance.
+
+Choose the transformation based on the data distribution.
+
+---
+
+### **Truncation**
+
+Truncation sets a threshold and adjusts all values outside that range. This reduces the effect of extreme values on model training and analysis.
+
+---
+
+### **Binning and Discretization**
+
+Some algorithms (like decision trees) work better with discrete or categorical data. **Binning** converts continuous values into categories or bins. Tools like `KBinsDiscretizer` can be used to discretize continuous features and improve model performance.
+
+
+---
+
+Here is a **shorter, clearer, properly formatted Markdown version**. I also rewrote the formulas in **plain text format** so they are easy to read (instead of unreadable math blocks). No meaning has been changed.
 
 ---
 
 ### **Normalization and Standardization**
 
-Normalization and Standardization are two of the most common techniques used in data transformation which aims to scale and transform the data such that the features have similar scales, which makes it easy for the machine learning algorithm ot learn and converge.
+Normalization and Standardization are data transformation techniques used to **scale features to similar ranges**, helping machine learning models learn faster and perform better.
 
-**Normalization:**
-The main objective of normalization is to rescale the features to a standard range of values which is usually 0-1. Normalization is usually used when different features have different range of values and some feature might contribute more to the model learning process, normalization helps in equalizing the range of the features and makes sure that the features contribute equally to the learning algorithm.
-Mathematically after normalization the new data point becomes:
-[
-x_i' = \frac{x_i - min(X)}{max(X) - min(X)}
-]
-here max(X) and min(X) are the maximum and minimum value of the feature of the data point being used (x_i) is the value of the data point.
+---
 
-**Standardization:**
-Standardardization is also known as z-score normalization, the objective of standardization is to transform the feature such that the value of mean becomes 0 and the value of standard deviation becomes 1. Standardization is usually useful when features have different scales but follow normal distribution, it helps machine learning algorithms which relies on gradient based optimization to converge at a faster rate. The new data point after standardization becomes:
-[
-x_i' = \frac{x_i - mean(X)}{std(X)}
-]
-here, mean(X) and std(X) are the mean and standard deviation of feature respectively.
+### **Normalization (Min–Max Scaling)**
+
+* Scales values to a fixed range, usually **0 to 1**
+* Useful when different features have very different ranges
+
+**Formula (simple text):**
+
+```
+x_normalized = (x - min) / (max - min)
+```
+
+Here, `min` and `max` are the minimum and maximum values of the feature.
+
+---
+
+### **Standardization (Z-Score Scaling)**
+
+* Transforms data so that **mean = 0** and **standard deviation = 1**
+* Useful when data follows a **normal distribution**
+* Helps gradient-based models converge faster
+
+**Formula (simple text):**
+
+```
+x_standardized = (x - mean) / std
+```
+
+Here, `mean` is the feature’s average, and `std` is its standard deviation.
+
+---
+
+### **Summary**
+
+| Method              | Output Range   | When to Use                    |
+| ------------------- | -------------- | ------------------------------ |
+| **Normalization**   | 0 to 1         | Features with different scales |
+| **Standardization** | No fixed range | Data is normally distributed   |
 
 ---
 
 ### **Encoding Categorical Variables**
 
-Many a times some features of a dataset are labeled as of different categories, but most of the machine learning algorithms works better on numeric data feature as compared to any different data type feature. Therefore, encoding of categorical features becomes an important step of data transformation. The categorical features could be encoded into numerical valued features in different ways, let's discuss some of the most common encoding techniques:
+Many a times some features of a dataset are labeled as of different categories, but most of the machine learning algorithms works better on numeric data feature as compared to any different data type feature.
 
 **One-Hot Encoding:**
 One-Hot Encoding is the most common encoding techniques used in data transformation, what it does is that it converts each category in a categorical feature into a different binary feature(i.e. 0 or 1), for example if there is a feature called 'vehicle' in the dataset and the categories in it are 'car', 'bike', 'bicycle', one-hot encoding will create three separate columns as 'is_car', 'is_bike', 'is_bicycle' and then label them as 0 if absent or 1 if present.

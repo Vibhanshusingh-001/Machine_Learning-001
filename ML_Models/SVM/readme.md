@@ -82,14 +82,9 @@ SVM can separate **non-linear data** by mapping it into **higher-dimensional spa
 
 ---
 
-## 7. Types of Kernels (Detailed)
 
-| Kernel         | Function                                    | Use-case / Notes                              |        |   |       |                                       |
-| -------------- | ------------------------------------------- | --------------------------------------------- | ------ | - | ----- | ------------------------------------- |
-| Linear         | ( K(x, x') = x \cdot x' )                   | Linearly separable data; simplest and fastest |        |   |       |                                       |
-| Polynomial     | ( K(x, x') = (\gamma x \cdot x' + r)^d )    | Captures polynomial relationships; d = degree |        |   |       |                                       |
-| RBF (Gaussian) | ( K(x, x') = \exp(-\gamma                   |                                               | x - x' |   | ^2) ) | Most popular; handles non-linear data |
-| Sigmoid        | ( K(x, x') = \tanh(\gamma x \cdot x' + r) ) | Rarely used; behaves like a neural network    |        |   |       |                                       |
+
+<img width="551" height="437" alt="image" src="https://github.com/user-attachments/assets/19a245f2-6357-469d-b4b7-c454c1be6057" />
 
 **Kernel Parameters:**
 

@@ -56,9 +56,7 @@ SVM works by finding a **hyperplane** that best separates data points of differe
 
 * **Hinge Loss Function:**
   Used to penalize misclassified points:
-  [
-  L = \sum_{i=1}^{n} \max(0, 1 - y_i (\mathbf{w} \cdot \mathbf{x_i} + b))
-  ]
+ 
 
 * **C (Regularization Parameter):**
 

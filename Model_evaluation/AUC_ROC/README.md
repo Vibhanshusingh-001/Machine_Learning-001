@@ -3,7 +3,9 @@ AUC-ROC curve is a graph used to check how well a binary classification model wo
 
   1. **True Positive Rate (TPR)**: how often the model correctly predicts the positive cases also known as Sensitivity or Recall.
   2. **False Positive Rate (FPR)**: how often the model incorrectly predicts a negative case as positive.
-  3. **Specificity**: measures the proportion of actual negatives that the model correctly identifies. It is calculated as 1 - FPR.
+     <img width="512" height="263" alt="image" src="https://github.com/user-attachments/assets/0fb59e3a-81e7-40ad-bb96-7ab26d08bd8f" />
+
+  4. **Specificity**: measures the proportion of actual negatives that the model correctly identifies. It is calculated as 1 - FPR.
    
    The higher the curve the better the model is at making correct predictions.
    

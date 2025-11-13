@@ -12,3 +12,8 @@ C --->Purpose: Inverse of regularization strength (λ = 1 / C)
 Small C → stronger regularization (simpler model, may underfit)
 
 Large C → weaker regularization (more complex model, may overfit)
+
+
+max_iter = the maximum number of learning steps allowed
+
+Convergence = the point where the model stops improving

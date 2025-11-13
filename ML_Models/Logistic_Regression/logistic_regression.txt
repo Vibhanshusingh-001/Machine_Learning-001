@@ -1,0 +1,14 @@
+l1_ratio--0 → Pure L2 (ridge)
+
+1 → Pure L1 (lasso)
+
+0.5 → Equal mix of both
+
+
+
+
+C --->Purpose: Inverse of regularization strength (λ = 1 / C)
+
+Small C → stronger regularization (simpler model, may underfit)
+
+Large C → weaker regularization (more complex model, may overfit)
